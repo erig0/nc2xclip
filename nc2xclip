@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# Continuously receives text by opening a socket via netcat then pipes
+# the output to xclip. It will xclip to primary, secondary, and clipboard.
+#
+
+NC_ARGS="-l -p 12345"
+XCLIP_ARGS="-l 0"
+
+[ -n "$NC" ] || NC="`which nc`"
+[ -n "$XCLIP" ] || XCLIP="`which xclip`"
+
+if [ ! -e "$NC" ]; then
+    echo "Could not execute \"$NC\""
+    exit 1
+fi
+if [ ! -e "$XCLIP" ]; then
+    echo "Could not execute \"$XCLIP\""
+    exit 1
+fi
+
+while true; do
+    "$NC" $NC_ARGS | "$XCLIP" -f $XCLIP_ARGS | "$XCLIP" -f $XCLIP_ARGS -sel pri | "$XCLIP" $XCLIP_ARGS -sel clip
+done
