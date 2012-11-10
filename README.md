@@ -5,7 +5,8 @@ The goal of nc2xclip is to provide a simple way to copy text from a remote (SSH)
 
 ## How it works
 The client data is yanked from VIM and shoved through netcat to the server/receiver.
-The server listens on for incoming data with netcat. That data is piped to xclip and made available in the primary, secondary and clipboard.
+
+The server waits for incoming data with netcat. That data is piped to xclip and made available in the primary, secondary and clipboard.
 
 ## Install
 ### Server (Receiver/local)
