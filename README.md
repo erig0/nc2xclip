@@ -15,6 +15,7 @@ The server waits for incoming data with netcat. That data is piped to xclip and 
 
 ### Client (Sender/remote)
     $ cp nc2xclip.vim ~/.vim/plugins/
+    $ cp get_visual_selection.vim ~/.vim/plugins/
 
 # Usage
 ## Start server
