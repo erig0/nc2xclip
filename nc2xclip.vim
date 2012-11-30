@@ -56,4 +56,6 @@ command -range=% Nc2Xclip call <SID>do_nc2xclip()
 
 " key mappings
 "
-vnoremap <leader>y :Nc2Xclip<CR>
+if !exists("nc2xclip_nomap")
+    vnoremap <leader>y :Nc2Xclip<CR>
+endif
